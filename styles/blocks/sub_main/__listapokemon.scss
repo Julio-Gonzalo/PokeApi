@@ -15,13 +15,30 @@
                     width: 150px;
                     height: 150px;
                     margin: 20px;
+                    
+                    .main-div2-pokemonDiv-div1{
 
-          }
+                              width: 100%;
+                              height: 90%;
+                              display: flex;
+                              justify-content: center;
 
-          .main-div2-pokemonDiv-pokemonInfoDiv-div-img{
+                              .main-div2-pokemonDiv-div1-img{
 
-                    width: 100%;
-                    height: 100%;
+                                        width: 75%;
+                                        height: 100%;
 
+                              }
+                    }
+
+                    .main-div2-pokemonDiv-div2{
+
+                              width: 100%;
+                              height: 10%;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+
+                    }
           }
 }

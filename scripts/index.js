@@ -37,10 +37,12 @@ const pintarPokemons = (pokemons) => {
     divPokemon.setAttribute("class", "main-div2-pokemonDiv");
     divPokemon.setAttribute("id", `pokemon-${pokemon.id}`);
     divPokemon.innerHTML = `
-              <img class="main-div2-pokemonDiv-img" src="${pokemon.img}" alt="${pokemon.nombre}">
-              <div class="main-div2-pokemonDiv-div">
-              <p class="main-div2-pokemonDiv-div-p1"># ${pokemon.id}</p>
-              <p class="main-div2-pokemonDiv-div-p2">${pokemon.nombre}</p>
+              <div class="main-div2-pokemonDiv-div1">
+              <img class="main-div2-pokemonDiv-div1-img" src="${pokemon.img}" alt="${pokemon.nombre}">
+              <span class="main-div2-pokemonDiv-div1-span"># ${pokemon.id}</span>
+              </div>
+              <div class="main-div2-pokemonDiv-div2">
+              <span class="main-div2-pokemonDiv-div2-span">${pokemon.nombre}</span>
               <div class="${pokemon.tipo}"></div>
               </div>`;
     espacioPokemons.appendChild(divPokemon);
