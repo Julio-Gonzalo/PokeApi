@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main/style.css" />
+    <script src="./scripts/index.js" defer></script>
+    <title>PokeApi</title>
+  </head>
+  <body data-function="body">
+    <header class="header">
+      <div class="header-div1">
+        <img
+          src="./assets/pokemon_logo.png"
+          alt="pokemonLogo"
+          class="header-div1-pokemonLogo"
+        />
+      </div>
+      <div class="header-div2"></div>
+    </header>
+    <main class="main">
+      <div class="main-div1">
+        <input
+          type="text"
+          data-function="filtro$busqueda"
+          class="main-div-input"
+        />
+      </div>
+      <div class="main-div2" data-function="div-pokemon"></div>
+      <footer class="main-footer">
+        <span class="main-footer-span">Hola, soy el footer</span>
+      </footer>
+    </main>
+  </body>
+</html>

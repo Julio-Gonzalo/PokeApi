@@ -1,0 +1,10 @@
+main{
+          width: 100vw;
+          height: 85vh;
+          background-color: #222222;
+          color: white;
+}
+
+@import "./sub_main/filter";
+@import "./sub_main/_listapokemon";
+@import "./footer";

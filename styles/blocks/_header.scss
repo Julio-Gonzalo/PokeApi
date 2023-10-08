@@ -1,0 +1,38 @@
+.header{
+
+          width: 100vw;
+          height: 15vh;
+          background-color: #D63A47;
+          display: flex;
+          flex-direction: column;
+
+          .header-div1{
+
+                    width: 100%;
+                    height: 35%;
+
+                    .header-div1-pokemonLogo{
+
+                              object-fit: contain;
+                              width: 100%;
+                              height: 100%;
+
+                    }
+          }
+
+          .header-div2{
+
+                    width: 100%;
+                    height: 65%;
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    align-items: center;
+
+                    .header-div2-tipos{
+
+                              width: 50px;
+
+                    } 
+          }
+}
