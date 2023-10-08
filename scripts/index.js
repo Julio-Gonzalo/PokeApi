@@ -35,6 +35,7 @@ const pintarPokemons = (pokemons) => {
   for (const pokemon of pokemons) {
     const divPokemon = document.createElement("div");
     divPokemon.setAttribute("class", "main-div2-pokemonDiv");
+    divPokemon.setAttribute("id", `pokemon-${pokemon.id}`);
     divPokemon.innerHTML = `
               <img class="main-div2-pokemonDiv-img" src="${pokemon.img}" alt="${pokemon.nombre}">
               <div class="main-div2-pokemonDiv-div">
@@ -44,56 +45,76 @@ const pintarPokemons = (pokemons) => {
               </div>`;
     espacioPokemons.appendChild(divPokemon);
 
-    divPokemon.addEventListener("click", function () {
-      const pokemonInfoDiv = document.createElement("div");
-      espacioPokemons.appendChild(pokemonInfoDiv);
-      pokemonInfoDiv.setAttribute(
-        "class",
-        "main-div2-pokemonDiv-pokemonInfoDiv"
+    divPokemon.addEventListener("click", () => {
+      const todasLasImagenes = espacioPokemons.querySelectorAll(
+        ".main-div2-pokemonDiv"
       );
-
-      const informacionPokemonsDiv = document.createElement("div");
-      informacionPokemonsDiv.setAttribute("class", "main-informacion-div");
-
-      const informacionPokemonsImg = document.createElement("div");
-      informacionPokemonsImg.setAttribute("class", "main-informacion-div-img");
-
-      const informacionPokemonsTexto = document.createElement("div");
-      informacionPokemonsTexto.setAttribute(
-        "class",
-        "main-informacion-div-texto"
-      );
-
-      const imgGrande = document.createElement("img");
-      imgGrande.src = pokemon.imgEvento;
-      imgGrande.setAttribute("class", "main-informacion-div-imgGrande");
-      informacionPokemonsImg.appendChild(imgGrande);
-
-      const informacionPokemonsTexto2 = document.createElement("div");
-      informacionPokemonsTexto2.setAttribute(
-        "class",
-        "main-informacion-div-texto2"
-      );
-      informacionPokemonsTexto.innerHTML = `
-                  <h2>Nombre: \n${pokemon.nombre}</h2>
-                  <h2>Tipo: \n${pokemon.tipo}</h2>
-                  <h3>Altura: ${pokemon.altura * 10} cm.</h3>
-                  <h3>Peso: ${pokemon.peso / 10} Kg.</h3>
-                  <h3>HP: ${pokemon.HP}</h3>
-                  <h3>ATQ: ${pokemon.ATQ}</h3>
-                  <h3>DEF: ${pokemon.DEF}</h3>
-                  <h3>VEL: ${pokemon.VEL}</h3>
-                  `;
-
-      informacionPokemonsDiv.appendChild(informacionPokemonsImg);
-      informacionPokemonsDiv.appendChild(informacionPokemonsTexto);
-      pokemonInfoDiv.appendChild(informacionPokemonsDiv);
-
-      pokemonInfoDiv.addEventListener("click", function () {
-        espacioPokemons.removeChild(pokemonInfoDiv);
+      todasLasImagenes.forEach((img) => {
+        img.style.display = "none";
       });
+
+      mostrarInformacionPokemon(pokemon);
     });
   }
+};
+
+const mostrarInformacionPokemon = (pokemon) => {
+  const espacioPokemons = document.querySelector(
+    "[data-function='div-pokemon']"
+  );
+
+  const pokemonInfoDiv = document.createElement("div");
+  espacioPokemons.appendChild(pokemonInfoDiv);
+  pokemonInfoDiv.setAttribute("class", "main-div2-pokemonDiv-pokemonInfoDiv");
+
+  const informacionPokemonsImg = document.createElement("div");
+  informacionPokemonsImg.setAttribute(
+    "class",
+    "main-div2-pokemonDiv-pokemonInfoDiv-div-img"
+  );
+
+  const imgGrande = document.createElement("img");
+  imgGrande.src = pokemon.imgEvento;
+  imgGrande.setAttribute(
+    "class",
+    "main-div2-pokemonDiv-pokemonInfoDiv-div-imgGrande"
+  );
+
+  const informacionPokemonsTexto = document.createElement("div");
+  informacionPokemonsTexto.setAttribute("class", "main-informacion-div-texto");
+
+  const informacionPokemonsTexto2 = document.createElement("div");
+  informacionPokemonsTexto2.setAttribute(
+    "class",
+    "main-informacion-div-texto2"
+  );
+
+  informacionPokemonsTexto.innerHTML = `
+  <h2>Nombre: \n${pokemon.nombre}</h2>
+  <h2>Tipo: \n${pokemon.tipo}</h2>
+  <h3>Altura: ${pokemon.altura * 10} cm.</h3>
+  <h3>Peso: ${pokemon.peso / 10} Kg.</h3>
+  <h3>HP: ${pokemon.HP}</h3>
+  <h3>ATQ: ${pokemon.ATQ}</h3>
+  <h3>DEF: ${pokemon.DEF}</h3>
+  <h3>VEL: ${pokemon.VEL}</h3>
+  `;
+
+  informacionPokemonsImg.appendChild(imgGrande);
+  pokemonInfoDiv.appendChild(informacionPokemonsImg);
+  pokemonInfoDiv.appendChild(informacionPokemonsTexto);
+
+  pokemonInfoDiv.addEventListener("click", () => {
+    espacioPokemons.removeChild(pokemonInfoDiv);
+
+    const todasLasImagenes = espacioPokemons.querySelectorAll(
+      ".main-div2-pokemonDiv"
+    );
+
+    todasLasImagenes.forEach((img) => {
+      img.style.display = "block";
+    });
+  });
 };
 
 const filtro = (pokemons) => {
@@ -156,8 +177,6 @@ const tiposIngles = [
 const pintarTipos = (tipos) => {
   for (let i = 0; i < tipos.length; i++) {
     const tipo = tipos[i];
-
-    console.log(tipo);
 
     const divTipos = document.createElement("div");
     divTipos.setAttribute("class", `${tipo}`);
