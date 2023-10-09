@@ -183,7 +183,7 @@ const pintarTipos = (tipos) => {
     const divTipos = document.createElement("div");
     divTipos.setAttribute("class", `${tipo}`);
 
-    divTipos.innerHTML = `<img class="header-div2-tipos" src="../assets/${tipo}.png" alt="${tipo}" />`;
+    divTipos.innerHTML = `<img class="header-div2-tipos" src="./assets/${tipo}.png" alt="${tipo}" />`;
 
     tablaTipos.appendChild(divTipos);
   }
